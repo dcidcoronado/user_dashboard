@@ -337,16 +337,6 @@ def admin_edit(request, user_id):
             this_user.user_level = request.POST['user_level']
             this_user.save()
 
-            userlogged = {
-                'id': this_user.id,
-                'first_name': this_user.first_name,
-                'last_name': this_user.last_name,
-                'email': this_user.email,
-                'user_level': this_user.user_level,
-                'description': this_user.description
-                }
-            request.session['user'] = userlogged
-
             messages.success(request, 'User information updated')
             
             return redirect(f'/users/edit/{user_id}')
