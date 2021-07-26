@@ -1,0 +1,39 @@
+
+{% extends "base.html" %}
+
+{% block title %}Signin Page{% endblock %}
+
+{% block navbar %}
+    {% include "menu.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="row my-5">
+        <div class="col-6">
+            <h3>Signin</h3>
+            <form action="/post_signin" method="POST">
+                {% csrf_token %}
+                <div class="mt-3">
+                    <label class="fw-bold" for="email">Email Address:</label>
+                </div>
+                <div class="mt-3">    
+                    <input class="form-control" name="email" id="email" type="text">
+                </div>
+
+                <div class="mt-3">
+                    <label class="fw-bold">Password</label>
+                </div>
+                <div class="mt-3">    
+                    <input class="form-control" name="password" id="password" type="password">
+                </div>
+
+                <div class="text-end mt-3">
+                    <button type="submit" class="btn btn-success text-center">Sign In</button>
+                </div>
+            </form>
+            <div class="mt-4">
+                <a href="/register" class="">Don't have an account? Register.</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
